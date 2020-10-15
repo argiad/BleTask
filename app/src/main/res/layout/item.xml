@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="centralManager"
+            type="com.crtmg.bletime.CentralManager" />
+        <variable
+            name="item"
+            type="com.crtmg.bletime.Peripheral" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <import type="android.graphics.Typeface" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> centralManager.itemClicked(position)}">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@{item.name}"
+            android:textAlignment="textStart"
+            android:typeface = '@{item.timeServiceAvailable ? "bold" : "normal"}'
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
